@@ -22,9 +22,11 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		if(Input.GetKey(KeyCode.LeftArrow)) {
 			x -= speed;
+			transform.localScale = new Vector2(-1, 1);
 		}
 		if(Input.GetKey(KeyCode.RightArrow)) {
 			x += speed;
+			transform.localScale = new Vector2(1, 1);
 		}
 
 		x = Mathf.Clamp (x, leftBorder, rightBorder);

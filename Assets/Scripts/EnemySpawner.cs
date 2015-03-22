@@ -3,14 +3,14 @@ using System.Collections;
 
 public class EnemySpawner: MonoBehaviour {
 	
-	public GameObject prefab;
-	
+	public GameObject[] prefab;
+
 	void Start() {
 		InvokeRepeating ("SpawnEnemy", .1f, 1f);
 	}
 	
 	void SpawnEnemy() {
-		GameObject obj = (GameObject) Instantiate(prefab);
+		GameObject obj = (GameObject) Instantiate(prefab[Random.Range (0, 2)]);
 		obj.name = "Enemy";
 		obj.transform.position = new Vector2 (
 			Random.Range (-22f, 22f),
