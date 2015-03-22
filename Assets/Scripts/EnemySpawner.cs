@@ -16,5 +16,18 @@ public class EnemySpawner: MonoBehaviour {
 			Random.Range (-22f, 22f),
 			17f
 		);
+		int face = Random.Range (0, 2); // 0, 1
+		if (face == 0) {
+			face = -1;
+		}
+		else if (face == 1) {
+			face = 1;
+		}
+
+		obj.transform.localScale = new Vector2 (face, 1);
+
+		Quaternion rot = Quaternion.identity; // (0, 0, 0)
+		rot.eulerAngles = new Vector3 (0, 0, Random.Range (-45, 45));
+		obj.transform.rotation = rot;
 	}
 }
