@@ -15,10 +15,19 @@ public class Timer : MonoBehaviour {
 
 		if (startTime > 0) {
 			startTime -= Time.deltaTime;
-		} else {
+		}
+		else if(timesup == false) {
 			timesup = true;
 			startTime = 0;
+			StartCoroutine("DelayToResult");
 		}
+
 		GetComponent<Text> ().text = "Time\n" + startTime.ToString ("f0");
+	}
+
+	IEnumerator DelayToResult () {
+		yield return new WaitForSeconds(3.5f);
+		PlayerPrefs.SetInt ("NowScore", Score.nowScore);
+		Application.LoadLevel ("Result");
 	}
 }
