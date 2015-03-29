@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Leaderboard : MonoBehaviour {
@@ -28,13 +29,11 @@ public class Leaderboard : MonoBehaviour {
 			PlayerPrefs.SetInt("NO"+i, scoreList[i-1]);
 		}
 
-		// print
 		for (int i=1; i<4; i++) {
-			Debug.Log (PlayerPrefs.GetInt("NO"+i));
+			transform
+				.Find ("NO"+i)
+				.Find ("Score")
+				.GetComponent<Text>().text = PlayerPrefs.GetInt("NO"+i).ToString();
 		}
-	}
-
-	void Update () {
-	
 	}
 }
