@@ -6,7 +6,7 @@ public class EnemySpawner: MonoBehaviour {
 	public GameObject[] prefab;
 
 	void Start() {
-		InvokeRepeating ("SpawnEnemy", .1f, 1f);
+		InvokeRepeating ("SpawnEnemy", .1f, .5f);
 	}
 
 	void Stop () {
@@ -19,7 +19,7 @@ public class EnemySpawner: MonoBehaviour {
 			Stop ();
 		}
 
-		GameObject obj = (GameObject) Instantiate(prefab[Random.Range (0, 2)]);
+		GameObject obj = (GameObject) Instantiate(prefab[Random.Range (0, prefab.Length)]);
 		obj.name = "Enemy";
 		obj.transform.position = new Vector2 (
 			Random.Range (-22f, 22f),

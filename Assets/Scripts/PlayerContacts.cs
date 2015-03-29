@@ -17,11 +17,13 @@ public class PlayerContacts : MonoBehaviour {
 		string tag = coll.collider.tag;
 		if (
 			tag == "Enemy" ||
-			tag == "Friendly"
+			tag == "Friendly1" ||
+			tag == "Friendly2"
 		) {
 			switch(tag) {
-				case "Enemy": Score.AddScore(-5); break;
-				case "Friendly": Score.AddScore(15); break;
+				case "Enemy": Score.AddScore(-25); break;
+				case "Friendly1": Score.AddScore(15); break;
+				case "Friendly2": Score.AddScore(30); break;
 			}
 			Destroy (coll.collider.gameObject);
 		}
