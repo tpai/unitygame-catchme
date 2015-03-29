@@ -6,6 +6,10 @@ public class Score : MonoBehaviour {
 
 	public static int nowScore = 0;
 
+	void Start () {
+		nowScore = 0;
+	}
+
 	void Update () {
 		GetComponent<Text> ().text = "Score: " + nowScore.ToString ();
 	}
