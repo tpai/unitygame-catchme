@@ -8,8 +8,17 @@ public class EnemySpawner: MonoBehaviour {
 	void Start() {
 		InvokeRepeating ("SpawnEnemy", .1f, 1f);
 	}
+
+	void Stop () {
+		CancelInvoke ("SpawnEnemy");
+	}
 	
 	void SpawnEnemy() {
+
+		if (Timer.timesup == true) {
+			Stop ();
+		}
+
 		GameObject obj = (GameObject) Instantiate(prefab[Random.Range (0, 2)]);
 		obj.name = "Enemy";
 		obj.transform.position = new Vector2 (
